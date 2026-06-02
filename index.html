@@ -1,0 +1,1376 @@
+</html><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>utrux-aparat</title>
+
+<link rel="icon" type="image/png" href="copilot_image_1761298341572.jpeg">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:tahoma,sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+padding-bottom:95px;
+}
+
+@keyframes donateGlow{
+
+0%{
+transform:scale(1);
+box-shadow:0 0 15px rgba(255,140,0,.4);
+}
+
+50%{
+transform:scale(1.03);
+box-shadow:0 0 35px rgba(255,140,0,.9);
+}
+
+100%{
+transform:scale(1);
+box-shadow:0 0 15px rgba(255,140,0,.4);
+}
+
+}
+  
+/* BACKGROUND */
+
+.bg{
+position:fixed;
+inset:0;
+background:linear-gradient(-45deg,#0f172a,#1e293b,#312e81,#2563eb);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+z-index:-3;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.circle{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+opacity:.5;
+z-index:-2;
+animation:move 15s infinite alternate;
+}
+
+.c1{
+width:250px;
+height:250px;
+background:#2563eb;
+top:10%;
+left:5%;
+}
+
+.c2{
+width:300px;
+height:300px;
+background:#7c3aed;
+bottom:10%;
+right:5%;
+}
+
+@keyframes move{
+from{transform:translateY(0px);}
+to{transform:translateY(100px);}
+}
+
+/* PAGE */
+
+.page{
+display:none;
+padding:20px;
+}
+
+.page.active{
+display:block;
+animation:fade .4s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* PROFILE */
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:25px;
+padding:20px;
+margin-bottom:20px;
+}
+
+.avatar{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+display:block;
+margin:auto;
+box-shadow:0 0 30px rgba(124,58,237,.6);
+}
+
+.name{
+font-size:30px;
+text-align:center;
+margin-top:15px;
+}
+
+.bio{
+text-align:center;
+color:#cbd5e1;
+margin-top:10px;
+line-height:1.8;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.stat{
+background:rgba(255,255,255,.05);
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+
+.stat h2{
+color:#60a5fa;
+}
+
+.btn{
+display:block;
+text-align:center;
+text-decoration:none;
+color:white;
+padding:15px;
+border-radius:15px;
+margin-top:20px;
+background:linear-gradient(45deg,#2563eb,#7c3aed);
+}
+
+/* VIDEOS */
+
+.video-card{
+background:rgba(255,255,255,.08);
+padding:15px;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+.thumb{
+height:180px;
+border-radius:15px;
+background:#1e293b;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:50px;
+}
+
+.video-title{
+font-size:20px;
+margin-top:10px;
+}
+
+.video-desc{
+color:#cbd5e1;
+margin-top:5px;
+}
+
+.views{
+margin-top:5px;
+color:#60a5fa;
+}
+
+/* COMMENTS */
+
+textarea{
+width:100%;
+height:140px;
+border:none;
+border-radius:15px;
+padding:15px;
+resize:none;
+}
+
+.send{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+margin-top:10px;
+background:linear-gradient(45deg,#2563eb,#7c3aed);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* BOTTOM NAV */
+
+.bottom{
+position:fixed;
+bottom:10px;
+left:50%;
+transform:translateX(-50%);
+width:95%;
+max-width:500px;
+height:75px;
+background:rgba(17,24,39,.85);
+backdrop-filter:blur(15px);
+border-radius:40px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+}
+
+.bottom button{
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+font-size:12px;
+}
+
+.icon{
+width:48px;
+height:48px;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+margin:auto;
+margin-bottom:3px;
+}
+  .admin-panel{
+background:rgba(255,255,255,.08);
+padding:15px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.admin-panel input{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:none;
+border-radius:10px;
+}
+
+.admin-panel button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-bottom:10px;
+}
+
+.delete-btn{
+background:#dc2626;
+color:white;
+margin-top:10px;
+}
+
+.video-thumb{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+}
+#topBtn{
+display:none;
+position:fixed;
+left:20px;
+bottom:100px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:#2563eb;
+color:white;
+font-size:22px;
+cursor:pointer;
+z-index:999;
+}
+
+#adminPanel{
+text-align:center;
+}
+
+#adminPanel input{
+display:block;
+width:80%;
+max-width:500px;
+margin:10px auto;
+text-align:center;
+}
+
+#adminPanel h2{
+text-align:center;
+}
+  
+</style>
+</head>
+  
+<body>
+<audio id="bgMusic" src="music.mp3" loop></audio>
+<div class="bg"></div>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<!-- CHANNEL -->
+
+<div id="channel" class="page active">
+
+<div class="card">
+
+<img class="avatar"
+src="./copilot_image_1761298341572.jpeg">
+
+<div class="name">UTRUX</div>
+
+<div class="bio">
+آموزش ویندوز و اندروید
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h2>30</h2>
+<p>ویدیو</p>
+</div>
+
+<div class="stat">
+<h2>3.8K</h2>
+<p>بازدید</p>
+</div>
+
+<div class="stat">
+<h2>604</h2>
+<p>دنبال کننده</p>
+</div>
+
+</div>
+
+<a class="btn"
+href="https://www.aparat.com/utrux"
+target="_blank">
+ورود به کانال آپارات
+</a>
+
+
+
+  <a
+href="https://daramet.com/utrux"
+target="_blank"
+style="
+display:block;
+text-align:center;
+text-decoration:none;
+color:white;
+font-size:18px;
+font-weight:bold;
+padding:18px;
+border-radius:20px;
+margin-top:12px;
+background:linear-gradient(135deg,#ff6b6b,#ff8e53,#ffcc70);
+box-shadow:0 0 25px rgba(255,140,0,.6);
+animation:donateGlow 2s infinite;
+">
+
+💖 حمایت مالی از UTRUX 🚀
+
+</a>
+
+</div>
+
+</div>
+  
+<div style="
+text-align:center;
+margin-top:20px;
+color:#cbd5e1;
+font-size:14px;
+">
+ساخته شده توسط امیر مهدی حیدری ❤️
+</div>
+<!-- VIDEOS -->
+  
+<div id="videos" class="page">
+  
+<input
+id="searchVideo"
+type="text"
+placeholder="🔎 جستجوی ویدیو..."
+onkeyup="searchVideos()"
+style="
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+margin-bottom:15px;
+">
+
+<select id="sortVideos" onchange="loadVideos()"
+style="
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+margin-bottom:15px;
+">
+
+<option value="newest">🆕 جدیدترین</option>
+<option value="oldest">📜 قدیمی‌ترین</option>
+<option value="title">🔤 بر اساس اسم</option>
+
+</select>
+  
+<!-- برای ویدیوهای بیشتر همین بلوک را کپی کن -->
+
+<div class="video-card">
+<a href="https://www.aparat.com/v/s42ur2b?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">بازی فروت نینجا با اسکرچ</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 15 </div>
+</div>
+
+<div class="video-card">
+<a href="https://www.aparat.com/v/c82fhh6?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">بازی توپ پیکسلی با اسکرچ</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 20</div>
+</div>
+  
+<div class="video-card">
+<a href="https://www.aparat.com/v/f7588gm?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت بازی تاس در اسکرچ
+</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 87 </div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/Tt5GA?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">مود کردن با لاکی پچر (پارت ۱)</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 135</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/s901p2c?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">مود کردن با لاکی پچر (پارت ۲)</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 173</div>
+</div>
+
+<div class="video-card">
+<a href="https://www.aparat.com/v/e440246?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت ماشین حساب با اسکرچ</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 49</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/s873g88?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت بازی ۳ بعدی با اسکرچ</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 20</div>
+</div>
+
+<div class="video-card">
+<a href="https://www.aparat.com/v/d16c099?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت بازی بدون کد نویسی در پایتون</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 59</div>
+</div>
+
+<div class="video-card">
+<a href="https://www.aparat.com/v/b35284r?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت گوگل اخبار با برنامه ساز همراه</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 21</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/p503aks?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت تقویم با پایتون</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 28</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/j507zot?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">مرحله ای کردن روبیکا و ساخت کانال در روبیکا ۲</div>
+<div class="video-desc">2 سال پیش</div>
+<div class="views">👁 1.2k </div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/jri7435?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">دانلود اپچه ۲ در اندروید (محبوب ترین)</div>
+<div class="video-desc">1 سال پیش</div>
+<div class="views">👁 1.5k </div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/jpu670l?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">بهترین برنامه ها در نت ملی...</div>
+<div class="video-desc">1 سال پیش</div>
+<div class="views">👁 9</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/qgzaoy7?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ساخت کیو آر کد حرفه ای</div>
+<div class="video-desc">1 سال پیش</div>
+<div class="views">👁 34</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/ouh79ez?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">نصب تلگرام روی ویندوز</div>
+<div class="video-desc">6 ماه پیش</div>
+<div class="views">👁 22</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/gaz5l2j?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">نصب chat gpt در ویندوز</div>
+<div class="video-desc">6 ماه پیش</div>
+<div class="views">👁 24</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/jhsm05l?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اپلود ویدیو در اپارات</div>
+<div class="video-desc">6 ماه پیش</div>
+<div class="views">👁 5</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/yjb6607?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اموزش نصب اینستاگرام روی ویندوز</div>
+<div class="video-desc">5 ماه پیش</div>
+<div class="views">👁 6</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/yort5s3?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اموزش نصب یونیتی در ویندوز</div>
+<div class="video-desc">5 ماه پیش</div>
+<div class="views">👁 23</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/icl7dft?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اموزش نصب بازی اندرویدی در ویندوز با gameloop
+</div>
+<div class="video-desc">5 ماه پیش</div>
+<div class="views">👁 25</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/utx0n94?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">باب اسفنجی کوتاه(پولداری)</div>
+<div class="video-desc">4 ماه پیش</div>
+<div class="views">👁 176</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/otr1off?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">باب اسفنجی(قسمت گم شده)</div>
+<div class="video-desc">4 ماه پیش</div>
+<div class="views">👁 37</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/nwqc8w8?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">ویدیو عاشقانه باب اسفنجی</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 5</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/bofnzyd?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اموزش نصب هوش مصنوعی افلاین ollama model در ویندوز لینک دانلود در توضیحات
+</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 27</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/oyd8d11?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">۶۰ مدل برای Ollama اون هم رایگان در شرایط ملی سایت ایرانی!!!!
+</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 33</div>
+</div>
+
+<div class="video-card">
+<a href="https://www.aparat.com/v/xmp5k78?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اموزش رکورد ویدیو در ویندوز</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 5</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/kuk3ep5?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">اموزش حذف همیشگی برنامه در ویندوز</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 7</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/ens1i9j?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">تغییر رنگ نوشته ها در cmd</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 2</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/fqd5b62?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">حل مشکل سیاه بودن صفحه ی obs studio</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 13</div>
+</div>
+
+  <div class="video-card">
+<a href="https://www.aparat.com/v/swqf444?refererRef=channel_page" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+<div class="video-title">UTRUX</div>
+<div class="video-desc">1 ماه پیش</div>
+<div class="views">👁 3</div>
+</div>
+  
+</div>
+
+<!-- PROFILE -->
+
+<!-- PROFILE PAGE -->
+
+<div id="profile" class="page">
+<div class="card">
+
+<h2 style="text-align:center">پروفایل شما:</h2>
+
+<br>
+
+<div style="text-align:center">
+
+<img id="savedAvatar"
+src="https://via.placeholder.com/150"
+style="
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #8b5cf6;
+">
+
+</div>
+
+<br>
+
+<h3 id="savedName"
+style="text-align:center">
+بدون نام
+</h3>
+
+<p id="savedBio"
+style="
+text-align:center;
+color:#cbd5e1;
+margin-top:10px;
+">
+بیوگرافی ثبت نشده
+</p>
+
+</div>
+<div class="card">
+
+<div style="text-align:center">
+
+<img id="avatarPreview"
+src="https://via.placeholder.com/150"
+style="
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #3b82f6;
+">
+
+<br><br>
+
+<input
+type="file"
+accept="image/*"
+onchange="changeAvatar(event)"
+style="width:100%;">
+
+</div>
+
+<br>
+
+<label>اسم:</label>
+
+<input
+id="nameInput"
+type="text"
+placeholder="اسم خود را وارد کنید"
+style="
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+margin-top:8px;
+">
+
+<br><br>
+
+<label>بیوگرافی:</label>
+
+<textarea
+id="bioInput"
+placeholder="بیوگرافی خود را وارد کنید"
+style="
+width:100%;
+height:120px;
+padding:12px;
+border:none;
+border-radius:12px;
+margin-top:8px;
+resize:none;
+"></textarea>
+
+<button
+onclick="saveProfile()"
+class="send">
+ذخیره کردن پروفایل
+</button>
+
+</div>
+
+
+</div>
+
+<script>
+
+let avatarData="";
+
+function changeAvatar(event){
+
+const file=event.target.files[0];
+
+if(file){
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+avatarData=e.target.result;
+
+document.getElementById("avatarPreview").src=avatarData;
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+}
+
+function saveProfile(){
+
+const name=
+document.getElementById("nameInput").value;
+
+const bio=
+document.getElementById("bioInput").value;
+
+if(name.trim()==""){
+
+alert("اسم را وارد کنید");
+
+return;
+
+}
+
+document.getElementById("savedName").innerText=name;
+
+document.getElementById("savedBio").innerText=bio;
+
+if(avatarData!=""){
+
+document.getElementById("savedAvatar").src=avatarData;
+
+}
+
+localStorage.setItem("utrux_name",name);
+localStorage.setItem("utrux_bio",bio);
+
+if(avatarData!=""){
+
+localStorage.setItem("utrux_avatar",avatarData);
+
+}
+
+alert("پروفایل ذخیره شد ✅");
+
+}
+
+window.onload=function(){
+
+const name=
+localStorage.getItem("utrux_name");
+
+const bio=
+localStorage.getItem("utrux_bio");
+
+const avatar=
+localStorage.getItem("utrux_avatar");
+
+if(name){
+
+document.getElementById("savedName").innerText=name;
+
+}
+
+if(bio){
+
+document.getElementById("savedBio").innerText=bio;
+
+}
+
+if(avatar){
+
+document.getElementById("savedAvatar").src=avatar;
+document.getElementById("avatarPreview").src=avatar;
+
+}
+
+};
+
+</script>
+
+<!-- COMMENTS -->
+
+<div id="comments" class="page">
+
+<div class="card">
+
+<h2>ارسال نظر</h2>
+
+<br>
+
+<textarea id="commentText"
+placeholder="نظر خود را بنویسید...">
+</textarea>
+
+<button class="send"
+onclick="sendComment()">
+ارسال نظر
+</button>
+
+</div>
+
+</div>
+  
+</div>
+
+<div id="settings" class="page">
+
+<div class="card">
+
+<h2>تنظیمات زبان  (به زودی...)</h2>
+
+<br>
+
+<button class="send" onclick="changeLanguage('fa')">
+🇮🇷 فارسی
+</button>
+
+<button class="send" onclick="changeLanguage('en')">
+🇺🇸 English
+</button>
+
+<button class="send" onclick="changeLanguage('ar')">
+🇸🇦 العربية
+</button>
+
+
+
+
+
+  
+
+  <div class="card">
+
+<h2>🎵 موزیک</h2>
+
+<select id="musicControl" onchange="toggleMusic()"
+style="
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+">
+
+<option value="off">🔇 خاموش</option>
+<option value="on">🎵 روشن</option>
+
+</select>
+
+
+
+
+
+
+    
+<div class="card">
+
+<button class="send" onclick="resetProfile()">
+❌ ریست پروفایل
+</button>
+
+</div>
+    
+    
+</div>
+  
+
+</div>
+
+<div id="adminPanel" style="display:none;">
+
+<div class="card">
+
+<h2>مدیریت ویدیو</h2>
+
+<input id="videoTitle" type="text" placeholder="عنوان ویدیو">
+
+<br><br>
+
+<input id="videoLink" type="text" placeholder="لینک آپارات">
+
+<br><br>
+  
+<button class="send" onclick="addVideo()">
+افزودن ویدیو
+</button>
+
+</div>
+</div>
+</div>
+
+<!-- NAV -->
+
+<div class="bottom">
+  
+<button onclick="showPage('channel')">
+<div class="icon">🏠</div>
+کانال
+</button>
+  
+<button onclick="showPage('videos')">
+<div class="icon">🎬</div>
+ویدیوها
+</button>
+
+<button onclick="showPage('profile')">
+<div class="icon">👤</div>
+پروفایل
+</button>
+
+<button onclick="showPage('comments')">
+<div class="icon">💬</div>
+نظر
+</button>
+  
+  <button onclick="showPage('settings')">
+<div class="icon">⚙️</div>
+تنظیمات
+</button>
+
+<button onclick="openAdmin()">
+<div class="icon">🔐</div>
+ورود مدیر
+</button>
+  
+</div>
+
+<script>
+
+function showPage(id){
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+
+let topBtn = document.getElementById("topBtn");
+
+if(id=="videos"){
+topBtn.style.display="block";
+}else{
+topBtn.style.display="none";
+}
+
+}
+
+function sendComment(){
+
+let text=document.getElementById('commentText');
+
+if(text.value.trim()!=""){
+
+alert("نظر شما ارسال شد ✅");
+
+text.value="";
+
+}else{
+
+alert("لطفا نظر خود را بنویسید");
+
+}
+
+}
+  
+function changeLanguage(lang){
+
+localStorage.setItem("lang",lang);
+
+if(lang=="fa"){
+alert("فارسی فعال شد");
+}
+
+if(lang=="en"){
+alert("English Activated");
+}
+
+if(lang=="ar"){
+alert("تم تفعيل العربية");
+}
+
+}
+
+  function scrollToTop(){
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+  function searchVideos(){
+
+let input =
+document.getElementById("searchVideo")
+.value.toLowerCase();
+
+let videos =
+document.querySelectorAll(".video-card");
+
+videos.forEach(video=>{
+
+let title =
+video.querySelector(".video-title")
+.innerText.toLowerCase();
+
+if(title.includes(input)){
+video.style.display="block";
+}else{
+video.style.display="none";
+}
+
+});
+
+}
+let adminLogged = false;
+
+function openAdmin(){
+
+let pass = prompt("رمز مدیریت را وارد کنید");
+
+if(pass === "Am1r$mahdi"){
+
+adminLogged = true;
+
+document.getElementById("adminPanel").style.display = "block";
+
+showPage("settings");
+
+alert("ورود موفق ✅");
+
+}else{
+
+alert("رمز اشتباه است");
+
+}
+
+}
+function addVideo(){
+if(!adminLogged){
+alert("ابتدا وارد مدیریت شوید");
+return;
+}
+let title =
+document.getElementById("videoTitle").value;
+
+let link =
+document.getElementById("videoLink").value;
+
+if(title=="" || link==""){
+alert("فیلدها را کامل کنید");
+return;
+}
+
+let videos =
+JSON.parse(
+localStorage.getItem("utrux_videos")
+) || [];
+
+videos.push({
+title:title,
+link:link,
+thumb:""
+});
+
+localStorage.setItem(
+"utrux_videos",
+JSON.stringify(videos)
+);
+
+loadVideos();
+
+alert("ویدیو ذخیره شد ✅");
+
+}
+function loadVideos(){
+
+document
+.querySelectorAll(".dynamic-video")
+.forEach(v=>v.remove());
+
+let videos =
+JSON.parse(
+localStorage.getItem("utrux_videos")
+) || [];
+
+videos.forEach((video,index)=>{
+
+let card =
+document.createElement("div");
+
+card.className =
+"video-card dynamic-video";
+
+card.innerHTML = `
+
+<a href="${video.link}" target="_blank">
+<div class="thumb">🎬</div>
+</a>
+
+<div class="video-title">
+${video.title}
+</div>
+
+<button
+class="send"
+onclick="deleteVideo(${index})">
+🗑 حذف
+</button>
+
+`;
+
+document
+.getElementById("videos")
+.appendChild(card);
+
+});
+
+}
+  function deleteVideo(index){
+
+let pass =
+prompt("رمز مدیریت را وارد کنید");
+
+if(pass!=="Am1r$mahdi"){
+alert("رمز اشتباه است");
+return;
+}
+
+let videos =
+JSON.parse(
+localStorage.getItem("utrux_videos")
+) || [];
+
+videos.splice(index,1);
+
+localStorage.setItem(
+"utrux_videos",
+JSON.stringify(videos)
+);
+
+location.reload();
+
+}
+  let thumbnailData = "";
+
+  
+</script>
+
+<script>
+loadVideos();
+</script>
+
+<button id="topBtn" onclick="scrollToTop()">
+⬆️
+</button>
+<script>
+
+window.addEventListener("load",()=>{
+
+const lang = localStorage.getItem("lang");
+
+if(lang==="en"){
+document.documentElement.lang="en";
+document.documentElement.dir="ltr";
+}
+
+if(lang==="ar"){
+document.documentElement.lang="ar";
+document.documentElement.dir="rtl";
+}
+
+if(lang==="fa"){
+document.documentElement.lang="fa";
+document.documentElement.dir="rtl";
+}
+
+});
+
+function toggleMusic(){
+
+let music =
+document.getElementById("bgMusic");
+
+let value =
+document.getElementById("musicControl").value;
+
+if(value=="on"){
+
+music.play();
+
+}else{
+
+music.pause();
+
+}
+
+}
+
+function resetProfile(){
+
+localStorage.removeItem("utrux_name");
+localStorage.removeItem("utrux_bio");
+localStorage.removeItem("utrux_avatar");
+
+alert("پروفایل پاک شد ✅");
+
+location.reload();
+
+}
+  
+loadVideos();
+  
+</script>
+</body>
+</html>
