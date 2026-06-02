@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تنظیم زبان</title>
+</head>
+<body>
+
+<h2>انتخاب زبان</h2>
+
+<button onclick="changeLanguage('fa')">🇮🇷 فارسی</button>
+<button onclick="changeLanguage('en')">🇺🇸 English</button>
+<button onclick="changeLanguage('ar')">🇸🇦 العربية</button>
+
+<script>
+
+function changeLanguage(lang){
+
+localStorage.setItem("lang", lang);
+
+alert("زبان ذخیره شد: " + lang);
+
+}
+
+</script>
+
+</body>
+</html>
